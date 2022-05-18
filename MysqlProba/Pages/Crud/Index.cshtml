@@ -1,0 +1,53 @@
+﻿@page
+@model MysqlProba.Pages.Crud.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Áttekintés</h1>
+<h4>Itt találhatod a tanárokat és a diákokat üres oldal esetén hozz létre új adatokat.</h4>
+<hr />
+
+<p>
+    <a asp-page="Create" class="btn btn-primary btn-dark">Hozzáadás</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Diak[0].DiakNev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diak[0].TanarNev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diak[0].Osztaly)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Diak) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiakNev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanarNev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Osztaly)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id" 
+                class="btn btn-primary btn-dark">Szerkesztés</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id" 
+                class="btn btn-primary btn-dark">Részletek</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id" 
+                class="btn btn-primary btn-dark">Törlés</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

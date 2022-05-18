@@ -1,0 +1,38 @@
+﻿@page
+@model MysqlProba.Pages.Crud.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h1>Törlés</h1>
+
+<h3>Biztos vagy benne hogy törlöd?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Diak.DiakNev)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Diak.DiakNev)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Diak.TanarNev)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Diak.TanarNev)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Diak.Osztaly)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Diak.Osztaly)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Diak.Id" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-page="./Index" class="btn btn-primary btn-dark">Vissza a névsorhoz</a>
+    </form>
+</div>
